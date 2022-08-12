@@ -185,8 +185,6 @@ class _LoginState extends State<Login> {
                       ),
                       InkWell(
                         onTap: () async {
-                          print(password);
-                          print(email);
                           await HttpService.login(email, password, context);
                         },
                         child: Container(

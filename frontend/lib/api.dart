@@ -9,15 +9,14 @@ import 'package:loginauth/navigate.dart';
 class HttpService {
   static final _client = http.Client();
 
-  static var _loginUrl =
-        Uri.parse('http://127.0.0.1:5000/login');
+  static final _loginUrl = Uri.parse('http://10.0.2.2:5000/login');
 
   static login(email, password, context) async {
+
     http.Response response = await _client.post(_loginUrl, body: {
       "email": email,
       "password": password,
     });
-
     if (response.statusCode == 200) {
       print(jsonDecode(response.body));
       var json = jsonDecode(response.body);
